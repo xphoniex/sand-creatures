@@ -30,10 +30,11 @@ def make_creatures(sand):
   from numpy import array
   from numpy.random import randint
   from modules.helpers import get_colors
+  import numpy as np
 
   # colors = get_colors('../colors/shimmering.gif')
-  # colors = get_colors('../colors/tumblr_nkpio2Dl4H1rlz4gso2_1280_1000.jpg')
-  colors = get_colors('../colors/ray-1.jpeg')
+  # colors = get_colors('./colors/tumblr_nkpio2Dl4H1rlz4gso2_1280_1000.jpg')
+  colors = get_colors('./colors/ray-1.jpeg')
   nc = len(colors)
 
   w = 0
@@ -56,7 +57,7 @@ def make_creatures(sand):
       rgba = colors[w%nc] + [0.0005]
       sand.set_rgba(rgba)
 
-      sand.paint_strokes(l1, l2, GRAINS)
+      sand.paint_strokes(l1, l2, np.ones(len(l1), dtype='long')*GRAINS)
 
       # pnum += 1
 
@@ -78,4 +79,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
